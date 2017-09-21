@@ -1,3 +1,4 @@
+import AudioKit
 import UIKit
 import Speech
 
@@ -5,9 +6,11 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var microphoneButton: UIButton!
+    @IBOutlet weak var playButton: UIButton!
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))!
     
+    private var audioPlayer: AKAudioPlayer!
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
@@ -56,6 +59,9 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
             startRecording()
             microphoneButton.setTitle("Stop Recording", for: .normal)
         }
+    }
+    @IBAction func playTapped(_ sender: AnyObject) {
+        playButton.setTitle("Playing!", for: .normal)
     }
     
     func startRecording() {
