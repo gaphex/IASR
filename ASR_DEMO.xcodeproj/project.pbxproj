@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C56D9C0FA0DD3D53D18BE35 /* Pods_ASR_DEMO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C76D2E4660959134401F95A6 /* Pods_ASR_DEMO.framework */; };
 		4512CDA805770058B64E28B8 /* Pods_ASR_DEMOTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC752E84D5E1AFF8853B4B61 /* Pods_ASR_DEMOTests.framework */; };
+		925C06FF1F73EDC200AD2BDA /* Pollution.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 925C06FE1F73EDC100AD2BDA /* Pollution.m4a */; };
 		B21BDB781F72C2D00066A684 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B21BDB761F72C2D00066A684 /* LaunchScreen.storyboard */; };
 		B21BDB7B1F72C2D80066A684 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B21BDB791F72C2D80066A684 /* Main.storyboard */; };
 		B24784131F72C101002E6550 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24784121F72C101002E6550 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		274614176FA837AE562AA60D /* Pods-ASR_DEMO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASR_DEMO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ASR_DEMO/Pods-ASR_DEMO.debug.xcconfig"; sourceTree = "<group>"; };
 		882EE8D2D3CCA2FC3792EF69 /* Pods-ASR_DEMOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASR_DEMOTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ASR_DEMOTests/Pods-ASR_DEMOTests.release.xcconfig"; sourceTree = "<group>"; };
+		925C06FE1F73EDC100AD2BDA /* Pollution.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pollution.m4a; path = data/Pollution.m4a; sourceTree = SOURCE_ROOT; };
 		971FD717DB01D4A3A8773ABE /* Pods-ASR_DEMOUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASR_DEMOUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ASR_DEMOUITests/Pods-ASR_DEMOUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B21BDB771F72C2D00066A684 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B21BDB7A1F72C2D80066A684 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		B24784111F72C101002E6550 /* ASR_DEMO */ = {
 			isa = PBXGroup;
 			children = (
+				925C06FE1F73EDC100AD2BDA /* Pollution.m4a */,
 				B24784121F72C101002E6550 /* AppDelegate.swift */,
 				B27F0E4A1F72C54800801D74 /* Info.plist */,
 				B24784141F72C101002E6550 /* ViewController.swift */,
@@ -288,6 +291,7 @@
 				B27F0E4B1F72C54800801D74 /* Info.plist in Resources */,
 				B21BDB7B1F72C2D80066A684 /* Main.storyboard in Resources */,
 				B247841A1F72C101002E6550 /* Assets.xcassets in Resources */,
+				925C06FF1F73EDC200AD2BDA /* Pollution.m4a in Resources */,
 				B21BDB781F72C2D00066A684 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

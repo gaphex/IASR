@@ -49,7 +49,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKQ-yl-pej">
-                                <rect key="frame" x="144" y="486" width="88" height="30"/>
+                                <rect key="frame" x="117" y="486" width="140" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start Playing"/>
                                 <connections>
@@ -71,7 +71,9 @@
                     </view>
                     <connections>
                         <outlet property="PlayButton" destination="AKQ-yl-pej" id="txL-62-ZJ3"/>
+                        <outlet property="mainLabel" destination="CtM-HG-XED" id="qfO-FE-9Fx"/>
                         <outlet property="microphoneButton" destination="wF6-O8-cvx" id="V9V-fM-n1g"/>
+                        <outlet property="playButton" destination="AKQ-yl-pej" id="9a7-Zt-Qy1"/>
                         <outlet property="textView" destination="RL2-YE-xML" id="WCI-r4-v5k"/>
                     </connections>
                 </viewController>

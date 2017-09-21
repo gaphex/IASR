@@ -1,4 +1,5 @@
 import AudioKit
+import AVFoundation
 import UIKit
 import Speech
 
@@ -6,14 +7,16 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var microphoneButton: UIButton!
+    @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))!
     
-    private var audioPlayer: AKAudioPlayer!
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    private var urlRecognitionRequest: SFSpeechURLRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,19 +53,48 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     @IBAction func microphoneTapped(_ sender: AnyObject) {
-        if audioEngine.isRunning {
-            audioEngine.stop()
-            recognitionRequest?.endAudio()
-            microphoneButton.isEnabled = false
-            microphoneButton.setTitle("Start Recording", for: .normal)
-        } else {
-            startRecording()
-            microphoneButton.setTitle("Stop Recording", for: .normal)
-        }
+//        if audioEngine.isRunning {
+//            audioEngine.stop()
+//            recognitionRequest?.endAudio()
+//            microphoneButton.isEnabled = false
+//            microphoneButton.setTitle("Start Recording", for: .normal)
+//        } else {
+//            startRecording()
+//            microphoneButton.setTitle("Stop Recording", for: .normal)
+//        }
+        startRecognizing()
     }
     @IBAction func playTapped(_ sender: AnyObject) {
-        playButton.setTitle("Playing!", for: .normal)
+        let audioFile = try? AKAudioFile(readFileName: "Pollution.m4a", baseDir: .resources)
+        if (audioFile != nil){
+            let player = try! AKAudioPlayer(file: audioFile!)
+            mainLabel.text = "Loaded file"
+            AudioKit.output = player
+            AudioKit.start()
+            playButton.setTitle("Playing file", for: .normal)
+            player.play()
+        }
+        else {
+            mainLabel.text = "File loading error"
+        }
     }
+    
+    func startRecognizing() {
+        guard let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en_US")) else {
+            mainLabel.text = "Could not init Speech Recognizer"
+            return
+        }
+        
+        let fileUrl = URL(fileURLWithPath: Bundle.main.path(forResource: "Pollution", ofType:"m4a")!)
+        
+        let urlRecognitionRequest = SFSpeechURLRecognitionRequest(url: fileUrl)
+        microphoneButton.setTitle("Transcribing...", for: .normal)
+        recognitionTask = speechRecognizer.recognitionTask(with: urlRecognitionRequest, resultHandler: { (result, error) in
+                print(result?.bestTranscription ?? "")
+            if (result?.isFinal)! {
+                self.mainLabel.text = result?.bestTranscription.formattedString
+            }
+        })}
     
     func startRecording() {
         
